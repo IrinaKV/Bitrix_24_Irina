@@ -1,24 +1,24 @@
 @login
 Feature: Login feature
-  CBT-25: As a user, I should be able to login with correct credentials
-  to different accounts, and dashboard should be displayed.
-  #this is how you comment in feature file
+ US_001 : As a user, I should be able to login with correct credentials
 
-  @librarian @employee @sunday
-  Scenario: Librarian login scenario
+  Background: story is that user is on the login page
     Given User is on the login page
-    When User logs in as librarian
-    Then User should see dashboard
-# && ||
-  @student
-  Scenario: Student login scenario
-    Given User is on the login page
-    When User logs in as student
-    Then User should see dashboard
 
-  @admin @employee @sunday
-  Scenario: Admin login scenario
-    Given User is on the login page
-    When User logs in as admin
-    Then User should see dashboard
+  Scenario Outline: User login scenario
+
+    When User log in with  "<login>" and "<password>"
+
+    Examples:
+      |login                  |password|
+      |helpdesk1@cybertekschool.com|UserUser     |
+      |helpdesk2@cybertekschool.com|UserUser     |
+      |marketing1@cybertekschool.com|UserUser    |
+      |marketing2@cybertekschool.com|UserUser    |
+      |hr1@cybertekschool.com       |UserUser    |
+      |hr2@cybertekschool.com       |UserUser    |
+
+    Then User should see the title
+#I changed
+
 
