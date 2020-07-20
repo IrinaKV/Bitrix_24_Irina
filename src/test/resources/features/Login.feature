@@ -9,6 +9,7 @@ Feature: Login feature
     Given User is on the login page
     When User logs in as librarian
     Then User should see dashboard
+    And one more change from Yuriy
 # && ||
   @student
   Scenario: Student login scenario
