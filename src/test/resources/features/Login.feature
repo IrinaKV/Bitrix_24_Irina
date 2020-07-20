@@ -8,8 +8,9 @@ Feature: Login feature
   Scenario: Librarian login scenario
     Given User is on the login page
     When User logs in as librarian
-    Then User should see dashboard
+    Then User should
     And one more change from Yuriy
+    And see dashboard
 # && ||
   @student
   Scenario: Student login scenario
