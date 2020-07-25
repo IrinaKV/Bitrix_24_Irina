@@ -15,7 +15,7 @@ Feature: Login feature
     Examples:
       |login                        |password|
       |helpdesk1@cybertekschool.com|UserUser|
-      #|helpdesk2@cybertekschool.com|UserUser|
+      |helpdesk2@cybertekschool.com|UserUser|
       #|marketing1@cybertekschool.com|UserUser|
       #|marketing2@cybertekschool.com|UserUser|
       #|hr1@cybertekschool.com|UserUser|
