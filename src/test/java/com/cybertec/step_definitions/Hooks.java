@@ -4,8 +4,11 @@ import com.cybertec.utilities.Driver;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 public class Hooks {
+    WebDriver driver;
+
     @Before(order = 2)
     public void setUpScenario(){
         System.out.println("-----> Before annotation: Setting up browser");
@@ -16,7 +19,7 @@ public class Hooks {
         System.out.println("--------> BEFORE ANNOTATION: DB CONNECTION CREATED <------");
     }
 
-    @After(order = 1)
+    @After(order = 2)
     public void tearDownScenario(Scenario scenario){
         /*System.out.println("scenario = " + scenario.getName());
         System.out.println("scenario.getSourceTagNames() = " + scenario.getSourceTagNames());
@@ -31,9 +34,15 @@ public class Hooks {
 
     }
 
+    @After()
+    public void tearDownFrom(){
+    Driver.closeDriver();
+    }
+
     @After(value = "@db", order = 2 )
     public void tearDownDatabaseConnection(){
         System.out.println("--------> AFTER ANNOTATION: DB CONNECTION CLOSED <------");
+
     }
 
     @BeforeStep
@@ -45,6 +54,7 @@ public class Hooks {
     public void tearDownStep(){
         System.out.println("===========> AFTERSTEP: TAKING SCREENSHOT <===========");
     }
+
 
 
 }

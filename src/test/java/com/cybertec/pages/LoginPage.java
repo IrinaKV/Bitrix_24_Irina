@@ -4,21 +4,25 @@ import com.cybertec.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
     @FindBy(css = "input[name='USER_LOGIN']")
-    public WebElement loginInput;
+    private WebElement loginInput;
 
     @FindBy(css = "input[name='USER_PASSWORD']")
-    public WebElement passwordInput;
+    private WebElement passwordInput;
 
     @FindBy(css = "input[type='submit']")
-    public WebElement LogInButton;
+    private WebElement LogInButton;
 
-    public LoginPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public void getLogin(String login,String password) throws InterruptedException {
+   Thread.sleep(3000);
+    loginInput.clear();
+    wait.until(ExpectedConditions.visibilityOf(loginInput)).sendKeys(login);
+    wait.until(ExpectedConditions.visibilityOf(passwordInput)).sendKeys(password);
+    LogInButton.click();
     }
-
 
 }
